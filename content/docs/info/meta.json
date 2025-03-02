@@ -1,0 +1,22 @@
+{
+    "title": "Framework",
+    "description": "The docs framework",
+    "icon": "Building2",
+    "root": true,
+    "pages": [
+        "---简介---",
+        "index",
+        "base-usage",
+        "---Agent 智能体---",
+        "what-is-agent",
+        "journal",
+        "butler",
+        "(integrations)",
+        "---Writing---",
+        "markdown",
+        "page-conventions",
+        "navigation",
+        "---其他---",
+        "..."
+    ]
+}

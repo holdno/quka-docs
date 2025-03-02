@@ -4,7 +4,14 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
+  // output: 'export',
+  images: {
+    unoptimized: true
+  },
+  env: {
+    siteName: '极核',
+  },
 };
 
 export default withMDX(config);
