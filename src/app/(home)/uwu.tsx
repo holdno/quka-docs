@@ -10,7 +10,7 @@ export function UwuHero(): React.ReactElement {
       <Image
         alt="logo"
         src={Logo}
-        className="mb-6 w-full max-w-[400px] px-4"
+        className="mb-6 w-full max-w-[400px] px-4 rounded-lg"
         priority
       />
 

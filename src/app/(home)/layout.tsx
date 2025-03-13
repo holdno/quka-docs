@@ -21,14 +21,14 @@ function Footer() {
         <div>
           <p className="mb-1 text-sm font-semibold">{process.env.siteName}</p>
           <p className="text-xs">
-            Built with ❤️ by{" "}
+            Thanks for ❤️{" "}
             <a
-              href="https://jihe.pro"
+              href="https://fumadocs.vercel.app/"
               rel="noreferrer noopener"
               target="_blank"
               className="font-medium"
             >
-              {process.env.siteName}
+              Fumadocs
             </a>
           </p>
         </div>

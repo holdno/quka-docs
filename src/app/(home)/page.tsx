@@ -86,7 +86,7 @@ export default function Page() {
             }}
           >
             <h2 className="text-center text-2xl font-semibold sm:text-3xl">
-              用户友好
+              😄 用户友好
               <br />
               从用户思维出发，做您最贴心的助手
             </h2>
@@ -106,7 +106,7 @@ function Architecture() {
     <div className="flex flex-col gap-4 border-x border-t px-8 py-16 md:py-24 lg:flex-row md:px-12">
       <div className="shrink-0 flex-1 text-start">
         <p className="px-2 py-1 text-sm font-mono bg-fd-primary text-fd-primary-foreground font-bold w-fit mb-4">
-          数据加密
+          🔐 数据加密
         </p>
         <h2 className="text-xl font-semibold mb-4 sm:text-2xl">
           隐私安全优先原则
@@ -119,20 +119,12 @@ function Architecture() {
         </p>
         <div className="flex flex-row items-center font-mono -mx-4">
           <a
-            href="https://github.com/fuma-nama/fumadocs-basehub"
+            href="https://github.com/quka-ai"
             rel="noreferrer noopener"
             target="_blank"
             className={cn(buttonVariants({ variant: "link" }))}
           >
-            使用云服务
-          </a>
-          <a
-            href="https://github.com/fuma-nama/fumadocs-sanity"
-            rel="noreferrer noopener"
-            target="_blank"
-            className={cn(buttonVariants({ variant: "link" }))}
-          >
-            本地部署
+            访问 Github
           </a>
         </div>
       </div>
@@ -266,13 +258,13 @@ function End() {
         </ul>
         <div className="flex flex-row flex-wrap gap-2 border-t pt-4">
           <Link
-            href="/docs"
+            href="/docs/info"
             className={cn(buttonVariants())}
           >
             浏览文档
           </Link>
           <a
-            href="https://githubbox.com/fuma-nama/fumadocs-ui-template"
+            href="https://github.com/quka-ai"
             rel="noreferrer noopener"
             className={cn(
               buttonVariants({
@@ -280,7 +272,7 @@ function End() {
               })
             )}
           >
-            Open in CodeSandbox
+            Open in Github
           </a>
         </div>
       </div>
@@ -314,7 +306,9 @@ function Integration({
       >
         <XiaohongshuLogo className="mb-3 size-12" />
         <p className="text-lg font-medium">小红书</p>
-        <p className="text-sm text-fd-muted-foreground">@QkaAI，中国用户社群</p>
+        <p className="text-sm text-fd-muted-foreground">
+          @QukaAI，中国用户社群
+        </p>
       </Link>
       <Link
         href="/docs/mdx"
@@ -474,7 +468,7 @@ function Hero() {
       </p>
       <div className="inline-flex items-center gap-3 max-md:mx-auto">
         <Link
-          href="/docs/ui"
+          href={process.env.siteURL + ""}
           className={cn(
             buttonVariants({ size: "lg", className: "rounded-full" })
           )}
@@ -482,7 +476,7 @@ function Hero() {
           快速开始
         </Link>
         <a
-          href="https://githubbox.com/fuma-nama/fumadocs-ui-template"
+          href="https://github.com/quka-ai"
           target="_blank"
           rel="noreferrer noopener"
           className={cn(
@@ -513,17 +507,24 @@ function Feedback() {
         }}
       />
       <p className="text-center font-medium text-fd-muted-foreground">
-        欢迎用户提供使用案例
+        与传统AI聊天应用有何区别？
       </p>
 
       <div className="mt-6 rounded-xl border bg-gradient-to-b from-secondary p-4 shadow-lg">
         <p className="text-sm font-medium">
-          {`"A gorgeous documentation framework that composes beautifully into the
-          App Router."`}
+          {`"传统AI无法获取我们的记忆内容，通常依赖于内部知识库，即在模型训练期间学习到的知识。`}
+          <br />
+          {`而`}
+          <span className="text-pink-500">{process.env.siteName}</span>
+          {`会额外结合我们的`}
+          <span className="text-pink-500">记忆</span>
+          {`来回答我们的请求。所以它更应该被称为`}
+          <span className="text-pink-500">第二大脑 😎</span>
+          {`"`}
         </p>
         <div className="mt-4 flex flex-row items-center gap-2">
           <Image
-            src="https://avatars.githubusercontent.com/u/35677084"
+            src="/developer-avatar.png"
             alt="avatar"
             width="32"
             height="32"
@@ -535,19 +536,17 @@ function Feedback() {
               rel="noreferrer noopener"
               className="text-sm font-medium"
             >
-              Anthony Shew
+              Boyce.
             </a>
-            <p className="text-xs text-fd-muted-foreground">
-              Turbo DX at Vercel
-            </p>
+            <p className="text-xs text-fd-muted-foreground">Developer</p>
           </div>
           <Link
-            href="/showcase"
+            href={process.env.siteURL + ""}
             className={cn(
               buttonVariants({ variant: "outline", className: "ml-auto" })
             )}
           >
-            Showcase
+            立即体验
           </Link>
         </div>
       </div>
@@ -595,6 +594,37 @@ function Features() {
   return (
     <div className="grid grid-cols-1 border-r md:grid-cols-2">
       <Feature
+        icon={CpuIcon}
+        subheading="多样的智能体"
+        heading="逐步迭代的智能体 AI Agent"
+        description="多样的智能体，解决生活中方方面面的需求。"
+      >
+        <div className="mt-8 flex flex-col gap-4">
+          <Link
+            href="/docs/info/journal"
+            className="rounded-xl bg-gradient-to-br from-transparent via-fd-primary p-px shadow-lg shadow-fd-primary/20"
+          >
+            <div className="rounded-[inherit] bg-fd-background bg-gradient-to-br from-transparent via-fd-primary/10 p-4 transition-colors hover:bg-fd-muted">
+              <LayoutIcon />
+              <h3 className="font-semibold">工作助理</h3>
+              <p className="text-sm text-fd-muted-foreground">
+                可以通过阅读用户的日记，帮助用户总结工作待办项与工作进度。
+              </p>
+            </div>
+          </Link>
+          <Link
+            href="/docs/info/butler"
+            className="rounded-xl border bg-fd-background p-4 shadow-lg transition-colors hover:bg-fd-muted"
+          >
+            <LibraryIcon />
+            <h3 className="font-semibold">管家</h3>
+            <p className="text-sm text-fd-muted-foreground">
+              家庭助理，可以帮您记录任何与清单相关的内容。
+            </p>
+          </Link>
+        </div>
+      </Feature>
+      <Feature
         icon={PaperclipIcon}
         subheading="日志记录"
         heading="每日生活与工作的草稿纸"
@@ -621,50 +651,14 @@ function Features() {
       </Feature>
 
       <Feature
-        icon={CpuIcon}
-        subheading="多样的智能体"
-        heading="逐步迭代的智能体 AI Agent"
-        description="多样的智能体，解决生活中方方面面的需求。"
-      >
-        <div className="mt-8 flex flex-col gap-4">
-          <Link
-            href="/docs/ui"
-            className="rounded-xl bg-gradient-to-br from-transparent via-fd-primary p-px shadow-lg shadow-fd-primary/20"
-          >
-            <div className="rounded-[inherit] bg-fd-background bg-gradient-to-br from-transparent via-fd-primary/10 p-4 transition-colors hover:bg-fd-muted">
-              <LayoutIcon />
-              <h3 className="font-semibold">工作助理</h3>
-              <p className="text-sm text-fd-muted-foreground">
-                可以通过阅读用户的日记，帮助用户总结工作待办项与工作进度。
-              </p>
-            </div>
-          </Link>
-          <Link
-            href="/docs/headless"
-            className="rounded-xl border bg-fd-background p-4 shadow-lg transition-colors hover:bg-fd-muted"
-          >
-            <LibraryIcon />
-            <h3 className="font-semibold">管家</h3>
-            <p className="text-sm text-fd-muted-foreground">
-              家庭助理，可以帮您记录任何与清单相关的内容。
-            </p>
-          </Link>
-        </div>
-      </Feature>
-      <Feature
         icon={Terminal}
-        subheading="Fumadocs CLI"
-        heading="The Shadcn UI for docs"
-        description="Fumadocs CLI creates interactive components for your docs, offering a rich experience to your users."
+        subheading="MCP 支持"
+        heading="MCP Support"
+        description="正在建设基于记忆的MCP通道，以便于用户在任意应用中轻松对接个人记忆。"
       >
-        <CodeBlock
-          code="npx fumadocs add accordion"
-          lang="bash"
-          wrapper={{
-            title: "Terminal",
-            allowCopy: false,
-            className: "backdrop-blur-sm",
-          }}
+        <img
+          className="w-2/3 mx-auto"
+          src="/MCP-Connect.png"
         />
       </Feature>
       <Feature

@@ -11,6 +11,7 @@ const config = {
   },
   env: {
     siteName: '极核',
+    siteURL: 'https://jihe.pro'
   },
 };
 

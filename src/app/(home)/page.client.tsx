@@ -135,7 +135,7 @@ export function ChatExampleAnimation() {
 }
 
 export function CreateAppAnimation() {
-  const installCmd = "Qka.AI 可以用来存储记忆碎片";
+  const installCmd = process.env.siteName + " 可以用来存储记忆碎片";
   const tickTime = 100;
   const timeCommandEnter = installCmd.length;
   const timeCommandRun = timeCommandEnter + 3;
@@ -513,21 +513,21 @@ export function PreviewImages() {
           className={cn(previewButtonVariants({ active: active === 0 }))}
           onClick={() => setActive(0)}
         >
-          Docs
+          Memory
         </button>
-        <button
+        {/* <button
           className={cn(previewButtonVariants({ active: active === 1 }))}
           onClick={() => setActive(1)}
         >
           OpenAPI
-        </button>
+        </button> */}
       </div>
       <Image
         src={MainImg}
         alt="preview"
         priority
         className={cn(
-          "w-full select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]",
+          "w-full rounded-lg select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]",
           active !== 0 && "hidden"
         )}
       />
@@ -537,7 +537,7 @@ export function PreviewImages() {
           alt="preview"
           priority
           className={cn(
-            "w-full select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]",
+            "w-full rounded-lg select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]",
             active !== 1 && "hidden"
           )}
         />

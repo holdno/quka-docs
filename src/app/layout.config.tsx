@@ -24,15 +24,17 @@ export const baseOptions: BaseLayoutProps = {
             fill="currentColor"
           />
         </svg>
-        Qka.AI
+        {process.env.siteName}
       </>
     ),
   },
+  githubUrl: "https://github.com/quka-ai",
   links: [
     {
-      text: "Documentation",
+      text: "文档",
       url: "/docs/info",
       active: "nested-url",
     },
   ],
+  children: <div>test</div>,
 };
