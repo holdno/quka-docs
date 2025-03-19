@@ -19,7 +19,7 @@ function Footer() {
     <footer className="mt-auto border-t bg-fd-card py-12 text-fd-secondary-foreground">
       <div className="container flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="mb-1 text-sm font-semibold">{process.env.siteName}</p>
+          <p className="mb-1 text-sm font-semibold">{process.env.SITE_NAME}</p>
           <p className="text-xs">
             Thanks for ❤️{" "}
             <a

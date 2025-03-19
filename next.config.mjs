@@ -8,11 +8,7 @@ const config = {
   output: 'standalone',
   images: {
     unoptimized: true
-  },
-  env: {
-    siteName: '极核',
-    siteURL: 'https://jihe.pro'
-  },
+  }
 };
 
 export default withMDX(config);

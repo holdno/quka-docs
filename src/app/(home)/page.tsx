@@ -26,11 +26,7 @@ import { UwuHero } from "@/app/(home)/uwu";
 import SourceImage from "@/public/source.png";
 import ContributorCounter from "@/components/contributor-count";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  CreateAppAnimation,
-  PreviewImages,
-  WhyInteractive,
-} from "./page.client";
+import { CreateAppAnimation, PreviewImages } from "./page.client";
 import {
   VercelLogo,
   NetlifyLogo,
@@ -137,89 +133,6 @@ function Architecture() {
   );
 }
 
-async function Why() {
-  return (
-    <div className="relative overflow-hidden border-x border-t px-8 py-12 md:py-16 md:min-h-[500px]">
-      <WhyInteractive
-        typeTable={
-          <TypeTable
-            type={{
-              name: {
-                type: "string",
-                description: "The name of player",
-                default: "hello",
-              },
-              code: {
-                type: "string",
-                description: (
-                  <CodeBlock
-                    lang="ts"
-                    code='console.log("Hello World")'
-                  />
-                ),
-              },
-            }}
-          />
-        }
-        codeblockSearchRouter={
-          <CodeBlock
-            lang="ts"
-            code={`import { source } from '@/lib/source';
-import { createFromSource } from 'fumadocs-core/search/server';
- 
-export const { GET } = createFromSource(source);`}
-          />
-        }
-        codeblockTheme={
-          <CodeBlock
-            lang="css"
-            code={`@import 'tailwindcss';
-@import 'fumadocs-ui/css/neutral.css';
-@import 'fumadocs-ui/css/preset.css';
-
-@source '../node_modules/fumadocs-ui/dist/**/*.js';`}
-          />
-        }
-        codeblockInteractive={
-          <CodeBlock
-            lang="tsx"
-            code={`import { File, Folder, Files } from 'fumadocs-ui/components/files';
- 
-<Files>
-  <Folder name="app" defaultOpen>
-    <File name="layout.tsx" />
-    <File name="page.tsx" />
-    <File name="global.css" />
-  </Folder>
-  <File name="package.json" />
-</Files>`}
-          />
-        }
-        codeblockMdx={
-          <CodeBlock
-            lang="tsx"
-            code={`import { db } from '@/server/db';
-
-export function ProductTable() {
-  const products = db.getProducts()
-    
-  return (
-    <ul>
-      {products.map(product => <li key={product.key}>{product.name}</li>)}
-    </ul>
-  );
-}
-
-## Products
-
-<ProductTable />`}
-          />
-        }
-      />
-    </div>
-  );
-}
-
 function End() {
   return (
     <div className="grid grid-cols-1 border-b border-r md:grid-cols-2 lg:grid-cols-3">
@@ -243,7 +156,7 @@ function End() {
               24小时待命
             </span>
             <span className="mt-2 text-sm text-fd-muted-foreground">
-              全天24小时待命，随叫随到
+              AI Agent全天24小时待命，随叫随到
             </span>
           </li>
           <li>
@@ -264,7 +177,7 @@ function End() {
             浏览文档
           </Link>
           <a
-            href="https://github.com/quka-ai"
+            href={process.env.GITHUB_LINK + ""}
             rel="noreferrer noopener"
             className={cn(
               buttonVariants({
@@ -301,8 +214,9 @@ function Integration({
         </span>
       </div>
       <Link
-        href="/docs/ui/openapi"
+        href={process.env.XIAOHONGSHU_LINK + ""}
         className={cn(linkItemVariants())}
+        target="_blank"
       >
         <XiaohongshuLogo className="mb-3 size-12" />
         <p className="text-lg font-medium">小红书</p>
@@ -311,16 +225,18 @@ function Integration({
         </p>
       </Link>
       <Link
-        href="/docs/mdx"
+        href={process.env.DISCORD_LINK + ""}
         className={cn(linkItemVariants())}
+        target="_blank"
       >
         <DiscordLogo className="mb-3 size-12" />
         <p className="text-lg font-medium">Discord</p>
         <p className="text-sm text-fd-muted-foreground">国际用户社群</p>
       </Link>
       <Link
-        href="/docs/headless/content-collections"
+        href={process.env.GITHUB_LINK + ""}
         className={cn(linkItemVariants(), "col-span-2 lg:col-span-1")}
+        target="_blank"
       >
         <GithubLogo className="mb-3 size-12" />
         <p className="text-lg font-medium">Github</p>
@@ -378,83 +294,6 @@ function Search(): React.ReactElement {
   );
 }
 
-function Highlights(): React.ReactElement {
-  return (
-    <div className="grid grid-cols-1 border-r md:grid-cols-2 lg:grid-cols-3">
-      <div className="col-span-full flex flex-row items-start justify-center border-l border-t p-8 pb-2 text-center">
-        <h2 className="bg-fd-primary text-fd-primary-foreground px-1 text-2xl font-semibold">
-          Highlights
-        </h2>
-        <MousePointer className="-ml-1 mt-8" />
-      </div>
-      <Highlight
-        icon={RocketIcon}
-        heading="Light and Fast."
-      >
-        Powerful documentation site with Next.js App Router.
-      </Highlight>
-      <Highlight
-        icon={TimerIcon}
-        heading="Performance."
-      >
-        Less client components, less Javascript, optimized images.
-      </Highlight>
-      <Highlight
-        icon={LayoutIcon}
-        heading="Accessibility & UX first."
-      >
-        Focus on user experience and accessibility.
-      </Highlight>
-      <Highlight
-        icon={SearchIcon}
-        heading="Syntax Highlighting."
-      >
-        Beautiful syntax highlighter, powered by{" "}
-        <a
-          href="https://shiki.style"
-          rel="noreferrer noopener"
-        >
-          Shiki
-        </a>
-        .
-      </Highlight>
-      <Highlight
-        icon={KeyboardIcon}
-        heading="Automation."
-      >
-        Useful remark/rehype plugins. Typescript Twoslash, OpenAPI docs
-        generation, and more.
-      </Highlight>
-      <Highlight
-        icon={PersonStandingIcon}
-        heading="Personalized."
-      >
-        Advanced options for customising your theme in a comfortable way.
-      </Highlight>
-    </div>
-  );
-}
-
-function Highlight({
-  icon: Icon,
-  heading,
-  children,
-}: {
-  icon: LucideIcon;
-  heading: ReactNode;
-  children: ReactNode;
-}): React.ReactElement {
-  return (
-    <div className="border-l border-t px-6 py-12">
-      <div className="mb-4 flex flex-row items-center gap-2 text-fd-muted-foreground">
-        <Icon className="size-4" />
-        <h2 className="text-sm font-medium">{heading}</h2>
-      </div>
-      <span className="font-medium">{children}</span>
-    </div>
-  );
-}
-
 function Hero() {
   return (
     <div className="relative z-[2] flex flex-col border-x border-t bg-fd-card/80 px-6 pt-12 max-md:text-center md:px-12 md:pt-16 [.uwu_&]:hidden max-lg:overflow-hidden">
@@ -468,7 +307,7 @@ function Hero() {
       </p>
       <div className="inline-flex items-center gap-3 max-md:mx-auto">
         <Link
-          href={process.env.siteURL + ""}
+          href={process.env.CLOUD_SITE_URL + ""}
           className={cn(
             buttonVariants({ size: "lg", className: "rounded-full" })
           )}
@@ -476,7 +315,7 @@ function Hero() {
           快速开始
         </Link>
         <a
-          href="https://github.com/quka-ai"
+          href={process.env.GITHUB_LINK + ""}
           target="_blank"
           rel="noreferrer noopener"
           className={cn(
@@ -515,7 +354,7 @@ function Feedback() {
           {`"传统AI无法获取我们的记忆内容，通常依赖于内部知识库，即在模型训练期间学习到的知识。`}
           <br />
           {`而`}
-          <span className="text-pink-500">{process.env.siteName}</span>
+          <span className="text-pink-500">{process.env.SITE_NAME + ""}</span>
           {`会额外结合我们的`}
           <span className="text-pink-500">记忆</span>
           {`来回答我们的请求。所以它更应该被称为`}
@@ -541,7 +380,7 @@ function Feedback() {
             <p className="text-xs text-fd-muted-foreground">Developer</p>
           </div>
           <Link
-            href={process.env.siteURL + ""}
+            href={process.env.CLOUD_SITE_URL + ""}
             className={cn(
               buttonVariants({ variant: "outline", className: "ml-auto" })
             )}
@@ -656,7 +495,8 @@ function Features() {
         heading="MCP Support"
         description="正在建设基于记忆的MCP通道，以便于用户在任意应用中轻松对接个人记忆。"
       >
-        <img
+        <Image
+          alt="mcp-connect"
           className="w-2/3 mx-auto"
           src="/MCP-Connect.png"
         />
