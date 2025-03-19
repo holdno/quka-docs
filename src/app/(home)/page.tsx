@@ -214,7 +214,7 @@ function Integration({
         </span>
       </div>
       <Link
-        href={process.env.XIAOHONGSHU_LINK}
+        href={process.env.XIAOHONGSHU_LINK + ""}
         className={cn(linkItemVariants())}
         target="_blank"
       >
@@ -225,7 +225,7 @@ function Integration({
         </p>
       </Link>
       <Link
-        href={process.env.DISCORD_LINK}
+        href={process.env.DISCORD_LINK + ""}
         className={cn(linkItemVariants())}
         target="_blank"
       >
@@ -234,7 +234,7 @@ function Integration({
         <p className="text-sm text-fd-muted-foreground">国际用户社群</p>
       </Link>
       <Link
-        href={process.env.GITHUB_LINK}
+        href={process.env.GITHUB_LINK + ""}
         className={cn(linkItemVariants(), "col-span-2 lg:col-span-1")}
         target="_blank"
       >
@@ -307,7 +307,7 @@ function Hero() {
       </p>
       <div className="inline-flex items-center gap-3 max-md:mx-auto">
         <Link
-          href={process.env.CLOUD_SITE_URL}
+          href={process.env.CLOUD_SITE_URL + ""}
           className={cn(
             buttonVariants({ size: "lg", className: "rounded-full" })
           )}
@@ -315,7 +315,7 @@ function Hero() {
           快速开始
         </Link>
         <a
-          href={process.env.GITHUB_LINK}
+          href={process.env.GITHUB_LINK + ""}
           target="_blank"
           rel="noreferrer noopener"
           className={cn(
@@ -354,7 +354,7 @@ function Feedback() {
           {`"传统AI无法获取我们的记忆内容，通常依赖于内部知识库，即在模型训练期间学习到的知识。`}
           <br />
           {`而`}
-          <span className="text-pink-500">{process.env.SITE_NAME}</span>
+          <span className="text-pink-500">{process.env.SITE_NAME + ""}</span>
           {`会额外结合我们的`}
           <span className="text-pink-500">记忆</span>
           {`来回答我们的请求。所以它更应该被称为`}
@@ -380,7 +380,7 @@ function Feedback() {
             <p className="text-xs text-fd-muted-foreground">Developer</p>
           </div>
           <Link
-            href={process.env.CLOUD_SITE_URL}
+            href={process.env.CLOUD_SITE_URL + ""}
             className={cn(
               buttonVariants({ variant: "outline", className: "ml-auto" })
             )}
@@ -495,7 +495,8 @@ function Features() {
         heading="MCP Support"
         description="正在建设基于记忆的MCP通道，以便于用户在任意应用中轻松对接个人记忆。"
       >
-        <img
+        <Image
+          alt="mcp-connect"
           className="w-2/3 mx-auto"
           src="/MCP-Connect.png"
         />
