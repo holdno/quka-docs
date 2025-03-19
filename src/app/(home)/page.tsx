@@ -156,7 +156,7 @@ function End() {
               24小时待命
             </span>
             <span className="mt-2 text-sm text-fd-muted-foreground">
-              全天24小时待命，随叫随到
+              AI Agent全天24小时待命，随叫随到
             </span>
           </li>
           <li>
@@ -177,7 +177,7 @@ function End() {
             浏览文档
           </Link>
           <a
-            href="https://github.com/quka-ai"
+            href={process.env.GITHUB_LINK + ""}
             rel="noreferrer noopener"
             className={cn(
               buttonVariants({
