@@ -24,11 +24,11 @@ export const baseOptions: BaseLayoutProps = {
             fill="currentColor"
           />
         </svg>
-        {process.env.siteName}
+        {process.env.SITE_NAME}
       </>
     ),
   },
-  githubUrl: "https://github.com/quka-ai",
+  githubUrl: `${process.env.GITHUB_LINK}`,
   links: [
     {
       text: "文档",
@@ -36,5 +36,4 @@ export const baseOptions: BaseLayoutProps = {
       active: "nested-url",
     },
   ],
-  children: <div>test</div>,
 };
