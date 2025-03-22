@@ -13,11 +13,11 @@ export const baseOptions: BaseLayoutProps = {
     title: (
       <>
         <img
-          className="w-[24px] h-[24px] rounded-full"
+          className="w-[24px] h-[24px] rounded-sm"
           src="/quka-avatar.jpg"
           alt="logo"
         />
-        {process.env.siteName}
+        {process.env.SITE_NAME}
       </>
     ),
   },

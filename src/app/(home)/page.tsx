@@ -495,7 +495,7 @@ function Features() {
         heading="MCP Support"
         description="正在建设基于记忆的MCP通道，以便于用户在任意应用中轻松对接个人记忆。"
       >
-        <Image
+        <img
           alt="mcp-connect"
           className="w-2/3 mx-auto"
           src="/MCP-Connect.png"
