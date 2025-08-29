@@ -346,19 +346,16 @@ function Feedback() {
         }}
       />
       <p className="text-center font-medium text-fd-muted-foreground">
-        与传统AI聊天应用有何区别？
+        使用 <a href="https://ai.baishan.com" className="text-white">白山云</a> 大模型API，立即<span className="text-white">免费</span>体验
       </p>
 
       <div className="mt-6 rounded-xl border bg-gradient-to-b from-secondary p-4 shadow-lg">
         <p className="text-sm font-medium">
-          {`"传统AI无法获取我们的记忆内容，通常依赖于内部知识库，即在模型训练期间学习到的知识。`}
+          {`"白山云 大模型API，注册并完成实名认证后，您将获得150元代金券(目前永久有效)，可以通过部署文档快速完成本地部署。`}
           <br />
-          {`而`}
-          <span className="text-pink-500">{process.env.SITE_NAME + ""}</span>
-          {`会额外结合我们的`}
-          <span className="text-pink-500">记忆</span>
-          {`来回答我们的请求。所以它更应该被称为`}
-          <span className="text-pink-500">第二大脑 😎</span>
+          {`欢迎使用我的推荐码：`}
+          <span className="text-pink-500">Ruh0hYhjvM 😄 </span>
+          {`活动有效期以白山云算力平台官网为准。`}
           {`"`}
         </p>
         <div className="mt-4 flex flex-row items-center gap-2">
@@ -385,7 +382,7 @@ function Feedback() {
               buttonVariants({ variant: "outline", className: "ml-auto" })
             )}
           >
-            立即体验
+            部署文档
           </Link>
         </div>
       </div>

@@ -135,7 +135,7 @@ export function ChatExampleAnimation() {
 }
 
 export function CreateAppAnimation() {
-  const installCmd = process.env.SITE_NAME + " 可以用来存储记忆碎片";
+  const installCmd = process.env.NEXT_PUBLIC_SITE_NAME + " 可以用来存储记忆碎片";
   const tickTime = 100;
   const timeCommandEnter = installCmd.length;
   const timeCommandRun = timeCommandEnter + 3;
