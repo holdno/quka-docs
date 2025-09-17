@@ -34,16 +34,20 @@ mkdir minio
 1. 登录系统：访问QukaAI管理界面，选择Selfhost模式登录，并使用上述管理员AccessToken进行登录
 2. 进入模型配置页面：
     - 点击左下角头像 → "AI 模型管理" → "模型提供商"
-    - 点击 "添加新提供商" 按钮
-3. 选择白山云模板：
+        ![模型配置入口](/deployment/config_entry.png)  
+    - 点击 "添加新提供商" 按钮  
+        ![模型配置入口](/deployment/create_button.png)  
+3. 选择白山云模板：  
     - 在弹窗中的 “快速开始模版” 选择 "白山云"，系统将自动加载预置的配置模板
-        ![快速创建白山云接入](/deployment/model_provider_tpl.png)
+        ![快速创建白山云接入](/deployment/model_provider_tpl.png)  
 4. 填写配置信息：
     - API密钥：填入你的白山云API密钥（获取API密钥：登录[白山智算平台](https://ai.baishan.com/auth/login?referralCode=Ruh0hYhjvM) > 个人中心 > API密钥）
+        ![选择模型](/deployment/model_select.png)
+        ![获取APIkey](/deployment/api_key.png)    
 5. 配置好模型供应商后，通过顶部tab进入到"模型配置"管理页
     - 通过添加模型配置下述模型
     - 供应商选则刚刚创建的 "白山云"，依次创建以下类型的模型配置(下述为推荐模型，具体可根据个人需求进行配置)  
-        - 聊天类型：Qwen3-32B-FP8  
+        - 聊天类型：Qwen3-Next-80B-A3B-Instruct  
         - 思考聊天类型：GLM-4.5
         - 向量化类型：BAAI/bge-m3  
         - 重排序类型：BAAI/bge-reranker-v2-m3  
