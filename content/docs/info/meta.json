@@ -8,11 +8,14 @@
         "index",
         "base-usage",
         "deployment",
+        "space",
         "---Agent 智能体---",
         "what-is-agent",
         "journal",
         "butler",
         "(integrations)",
+        "---集成---",
+        "mcp",
         "..."
     ]
 }

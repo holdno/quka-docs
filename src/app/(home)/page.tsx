@@ -296,10 +296,13 @@ function Search(): React.ReactElement {
 
 function Hero() {
   return (
-    <div className="relative z-[2] flex flex-col border-x border-t bg-fd-card/80 px-6 pt-12 max-md:text-center md:px-12 md:pt-16 [.uwu_&]:hidden max-lg:overflow-hidden">
-      <h1 className="mb-8 text-4xl font-medium md:hidden">构建个人第二大脑</h1>
-      <h1 className="mb-8 max-w-[600px] text-4xl font-medium max-md:hidden">
-        一个开箱即用，轻量且强大的记忆体构建平台。
+    <div className="relative z-2 flex flex-col border-x border-t bg-fd-background/80 px-4 pt-12 max-md:text-center md:px-12 md:pt-16 [.uwu_&]:hidden overflow-hidden">
+      <div className="absolute inset-0 z-[-1] blur-2xl hidden dark:block" style={{
+        maskImage: "linear-gradient(transparent, white, transparent);",
+        backgroundImage: "repeating-linear-gradient(65deg, var(--color-blue-500), var(--color-blue-500) 12px, color-mix(in oklab, var(--color-blue-600) 30%, transparent) 20px, transparent 200px);"
+      }}/>
+      <h1 className="mb-8 max-w-[600px] text-3xl font-medium max-md:hidden">
+        QukaAI. 👋🏻 一个开箱即用，AI赋能的记忆增强平台。
       </h1>
       <p className="mb-8 text-fd-muted-foreground md:max-w-[80%] md:text-xl">
         开源的 LLM

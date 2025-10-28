@@ -1,0 +1,47 @@
+---
+title: MCP
+---
+
+## 什么是 MCP？
+
+MCP (Model Context Protocol) 是一个用于连接 AI 模型与外部数据源和工具的开放协议。  
+MCP 提供了一个标准化的方式，让 AI 应用能够安全、可控地访问外部资源。通过 MCP，{process.env.SITE_NAME} 可以：
+
+- 连接到各种数据源
+- 调用外部工具和服务 或 使用外部 AI 工具调用 {process.env.SITE_NAME}
+- 扩展 AI 的能力边界
+
+#### 相关资源
+
+- [MCP 官方文档](https://modelcontextprotocol.io)
+- [MCP GitHub](https://github.com/modelcontextprotocol)
+
+## 在其他工具中通过 MCP 连接 {process.env.SITE_NAME}
+
+```
+# HTTP API
+# Method Post
+{Your QukaAI Host}/api/v1/mcp?space_id={spaceid}
+
+# Header
+Authorization: Bearer {Your AccessToken}
+```
+
+在接入 QukaAI MCP 时必须指定 `space_id` 参数
+
+![模型配置入口](/mcp本地调试示例.png)
+
+#### 使用场景
+
+- 在 Claude Cli 中使用 {process.env.SITE_NAME} MCP [查看 Claude 官方文档](https://docs.claude.com/en/docs/claude-code/mcp)
+  ```
+  claude mcp add --transport http {process.env.SITE_NAME} \
+    '{Your QukaAI Host}/api/v1/mcp?space_id={spaceid}' \
+    --header 'Authorization: Bearer {Your AccessToken}'
+  ```
+  执行完成后，重新启动 Claude Cli，输入 /mcp 指令，选择 MCP Status 查看已接入的 MCP  
+  ![模型配置入口](/claude-mcp-connected.png)
+
+## 在 {process.env.SITE_NAME} 中使用 MCP
+
+TODO

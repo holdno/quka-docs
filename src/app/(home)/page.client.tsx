@@ -255,7 +255,7 @@ export function PreviewImages() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="mt-12 -mb-40 min-w-[800px] lg:-mb-18 xl:min-w-[1100px] xl:-mx-24">
+    <div className="mt-12 min-w-[800px] overflow-hidden xl:-mx-12 dark:[mask-image:linear-gradient(to_top,transparent,white_40px)]">
       <div className="absolute flex flex-row left-1/2 -translate-1/2 bottom-4 z-[2] p-1 rounded-full bg-fd-card border shadow-xl dark:shadow-fd-background">
         <div
           role="none"
@@ -277,26 +277,28 @@ export function PreviewImages() {
           OpenAPI
         </button> */}
       </div>
-      <Image
-        src={MainImg}
-        alt="preview"
-        priority
-        className={cn(
-          "w-full rounded-lg select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]",
-          active !== 0 && "hidden"
-        )}
-      />
-      {active === 1 && (
+      <div className="px-10">
         <Image
           src={MainImg}
           alt="preview"
           priority
           className={cn(
-            "w-full rounded-lg select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]",
-            active !== 1 && "hidden"
+            "w-full border-6 border-fd-border/80 rounded-xl shadow-sm select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 -mb-60",
+            active !== 0 && "hidden"
           )}
         />
-      )}
+        {active === 1 && (
+          <Image
+            src={MainImg}
+            alt="preview"
+            priority
+            className={cn(
+              "w-full border-5 border-fd-border/80 rounded-lg shadow-sm select-none duration-1000 animate-in fade-in slide-in-from-bottom-12 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)]",
+              active !== 1 && "hidden"
+            )}
+          />
+        )}
+      </div>
     </div>
   );
 }
