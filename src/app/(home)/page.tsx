@@ -306,7 +306,7 @@ function Hero() {
       </h1>
       <p className="mb-8 text-fd-muted-foreground md:max-w-[80%] md:text-xl">
         开源的 LLM
-        记忆体应用，提供了一种极简的方式来构建个人的第二“大脑”。基于记忆的AI聊天，叠加多种智能体为您的生活减负提效。
+        记忆体应用，提供了一种极简的方式来构建个人第二“大脑”。基于个人记忆的AI交互，叠加多种智能体为生活减负提效。
       </p>
       <div className="inline-flex items-center gap-3 max-md:mx-auto">
         <Link
