@@ -297,10 +297,14 @@ function Search(): React.ReactElement {
 function Hero() {
   return (
     <div className="relative z-2 flex flex-col border-x border-t bg-fd-background/80 px-4 pt-12 max-md:text-center md:px-12 md:pt-16 [.uwu_&]:hidden overflow-hidden">
-      <div className="absolute inset-0 z-[-1] blur-2xl hidden dark:block" style={{
-        maskImage: "linear-gradient(transparent, white, transparent);",
-        backgroundImage: "repeating-linear-gradient(65deg, var(--color-blue-500), var(--color-blue-500) 12px, color-mix(in oklab, var(--color-blue-600) 30%, transparent) 20px, transparent 200px);"
-      }}/>
+      <div
+        className="absolute inset-0 z-[-1] blur-2xl hidden dark:block"
+        style={{
+          maskImage: "linear-gradient(transparent, white, transparent);",
+          backgroundImage:
+            "repeating-linear-gradient(65deg, var(--color-blue-500), var(--color-blue-500) 12px, color-mix(in oklab, var(--color-blue-600) 30%, transparent) 20px, transparent 200px);",
+        }}
+      />
       <h1 className="mb-8 max-w-[600px] text-3xl font-medium max-md:hidden">
         QukaAI. 👋🏻 一个开箱即用，AI赋能的记忆增强平台。
       </h1>
@@ -331,6 +335,20 @@ function Hero() {
         >
           Github
         </a>
+        <a
+          href="https://github.com/quka-ai/webapp/releases/download/v0.2.8/QukaAI-macOS-universal-v0.2.8.dmg"
+          rel="noreferrer noopener"
+          target="_blank"
+          className={cn(
+            buttonVariants({
+              variant: "link",
+              className:
+                "rounded-full bg-fd-background border-2 border-blue-500",
+            })
+          )}
+        >
+          下载桌面版(MacOS v0.2.8)
+        </a>
       </div>
       <PreviewImages />
     </div>
@@ -349,7 +367,14 @@ function Feedback() {
         }}
       />
       <p className="text-center font-medium text-fd-muted-foreground">
-        使用 <a href="https://ai.baishan.com" className="text-white">白山云</a> 大模型API，立即<span className="text-white">免费</span>体验
+        使用{" "}
+        <a
+          href="https://ai.baishan.com"
+          className="text-white"
+        >
+          白山云
+        </a>{" "}
+        大模型API，立即<span className="text-white">免费</span>体验
       </p>
 
       <div className="mt-6 rounded-xl border bg-gradient-to-b from-secondary p-4 shadow-lg">
