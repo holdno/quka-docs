@@ -312,7 +312,7 @@ function Hero() {
         开源的 LLM
         记忆体应用，提供了一种极简的方式来构建个人第二“大脑”。基于个人记忆的AI交互，叠加多种智能体为生活减负提效。
       </p>
-      <div className="inline-flex items-center gap-3 max-md:mx-auto">
+      <div className="flex flex-wrap items-center gap-3 max-md:mx-auto max-md:justify-center">
         <Link
           href={process.env.CLOUD_SITE_URL + ""}
           className={cn(
@@ -339,12 +339,8 @@ function Hero() {
           href="https://github.com/quka-ai/webapp/releases/download/v0.2.8/QukaAI-macOS-universal-v0.2.8.dmg"
           rel="noreferrer noopener"
           target="_blank"
-          className={cn(
-            buttonVariants({
-              variant: "link",
-              className:
-                "rounded-full bg-fd-background border-2 border-blue-500",
-            })
+           className={cn(
+            buttonVariants({ size: "lg", className: "rounded-full bg-fd-background border-2 border-blue-500 text-white" })
           )}
         >
           下载桌面版(MacOS v0.2.8)
