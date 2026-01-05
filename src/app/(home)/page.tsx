@@ -3,33 +3,23 @@ import { Heart, type LucideIcon, MousePointer, Terminal } from "lucide-react";
 import {
   BatteryChargingIcon,
   CpuIcon,
-  FileEditIcon,
   FileTextIcon,
-  KeyboardIcon,
   LayoutIcon,
   LibraryIcon,
   PaperclipIcon,
-  PersonStandingIcon,
-  RocketIcon,
   SearchIcon,
   TimerIcon,
   ChevronsLeftRightEllipsis,
 } from "lucide-react";
-import { File, Files, Folder } from "fumadocs-ui/components/files";
 import Link from "next/link";
 import type { HTMLAttributes, ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { buttonVariants } from "@/components/ui/button";
-import { CodeBlock } from "@/components/code-block";
 import { UwuHero } from "@/app/(home)/uwu";
-import SourceImage from "@/public/source.png";
-import ContributorCounter from "@/components/contributor-count";
 import { Calendar } from "@/components/ui/calendar";
 import { CreateAppAnimation, PreviewImages } from "./page.client";
 import {
-  VercelLogo,
-  NetlifyLogo,
   DiscordLogo,
   XiaohongshuLogo,
   GithubLogo,
@@ -40,7 +30,6 @@ import {
   JinaLogo,
 } from "@/components/icons";
 import ArchImg from "./arch.png";
-import { TypeTable } from "fumadocs-ui/components/type-table";
 import { ChatExampleAnimation } from "./page.client";
 // import { owner, repo } from "@/lib/github";
 
@@ -69,7 +58,6 @@ export default function Page() {
         >
           <div className="relative">
             <Hero />
-            <UwuHero />
           </div>
           <Feedback />
           <Introduction />
@@ -138,7 +126,7 @@ function End() {
     <div className="grid grid-cols-1 border-b border-r md:grid-cols-2 lg:grid-cols-3">
       <div className="relative flex flex-col gap-8 overflow-hidden border-l border-t p-8">
         <h2 className="text-3xl font-extrabold font-mono uppercase text-fd-muted-foreground/50">
-          构建第二大脑
+          Archive Results, Fuel Future Creation.
         </h2>
         <ul className="mt-2 flex flex-col gap-6">
           <li>
@@ -305,12 +293,11 @@ function Hero() {
             "repeating-linear-gradient(65deg, var(--color-blue-500), var(--color-blue-500) 12px, color-mix(in oklab, var(--color-blue-600) 30%, transparent) 20px, transparent 200px);",
         }}
       />
-      <h1 className="mb-8 max-w-[600px] text-3xl font-medium max-md:hidden">
-        QukaAI. 👋🏻 一个开箱即用，AI赋能的记忆增强平台。
+      <h1 className="mb-8 max-w-[600px] text-3xl font-medium">
+        QukaAI. 👋🏻 Archive Results, Fuel Future Creation.
       </h1>
       <p className="mb-8 text-fd-muted-foreground md:max-w-[80%] md:text-xl">
-        开源的 LLM
-        记忆体应用，提供了一种极简的方式来构建个人第二“大脑”。基于个人记忆的AI交互，叠加多种智能体为生活减负提效。
+        沉淀产出，为下一次生产赋能。👍
       </p>
       <div className="flex flex-wrap items-center gap-3 max-md:mx-auto max-md:justify-center">
         <Link
@@ -339,8 +326,12 @@ function Hero() {
           href="https://github.com/quka-ai/webapp/releases/download/v0.2.8/QukaAI-macOS-universal-v0.2.8.dmg"
           rel="noreferrer noopener"
           target="_blank"
-           className={cn(
-            buttonVariants({ size: "lg", className: "rounded-full bg-fd-background border-2 border-blue-500 text-white" })
+          className={cn(
+            buttonVariants({
+              size: "lg",
+              className:
+                "rounded-full bg-fd-background border-2 border-blue-500 text-white",
+            })
           )}
         >
           下载桌面版(MacOS v0.2.8)
