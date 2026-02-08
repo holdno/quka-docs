@@ -34,7 +34,7 @@ import { ChatExampleAnimation } from "./page.client";
 // import { owner, repo } from "@/lib/github";
 
 const badgeVariants = cva(
-  "inline-flex size-7 items-center justify-center rounded-full bg-fd-primary font-medium text-fd-primary-foreground"
+  "inline-flex size-7 items-center justify-center rounded-full bg-fd-primary font-medium text-fd-primary-foreground",
 );
 
 export default function Page() {
@@ -170,7 +170,7 @@ function End() {
             className={cn(
               buttonVariants({
                 variant: "outline",
-              })
+              }),
             )}
           >
             Open in Github
@@ -192,7 +192,7 @@ function Integration({
     <div
       className={cn(
         "relative grid grid-cols-2 *:border-l *:border-t *:p-6 lg:grid-cols-3",
-        className
+        className,
       )}
       {...props}
     >
@@ -245,7 +245,7 @@ function Integration({
 }
 
 const searchItemVariants = cva(
-  "flex flex-row items-center gap-2 rounded-md p-2 text-sm text-fd-popover-foreground"
+  "flex flex-row items-center gap-2 rounded-md p-2 text-sm text-fd-popover-foreground",
 );
 
 function Search(): React.ReactElement {
@@ -269,7 +269,7 @@ function Search(): React.ReactElement {
               className={cn(
                 searchItemVariants({
                   className: i === 0 ? "bg-fd-accent" : "",
-                })
+                }),
               )}
             >
               <FileTextIcon className="size-4 text-fd-muted-foreground" />
@@ -303,7 +303,7 @@ function Hero() {
         <Link
           href={process.env.CLOUD_SITE_URL + ""}
           className={cn(
-            buttonVariants({ size: "lg", className: "rounded-full" })
+            buttonVariants({ size: "lg", className: "rounded-full" }),
           )}
         >
           快速开始
@@ -317,7 +317,7 @@ function Hero() {
               size: "lg",
               variant: "outline",
               className: "rounded-full bg-fd-background",
-            })
+            }),
           )}
         >
           Github
@@ -331,7 +331,7 @@ function Hero() {
               size: "lg",
               className:
                 "rounded-full bg-fd-background border-2 border-blue-500 text-white",
-            })
+            }),
           )}
         >
           下载桌面版(MacOS v0.2.8)
@@ -353,53 +353,31 @@ function Feedback() {
             "linear-gradient(to right, #4ebfff, transparent, #e92a67)",
         }}
       />
-      <p className="text-center font-medium text-fd-muted-foreground">
-        使用{" "}
+      <div className="flex flex-col items-center gap-3">
         <a
-          href="https://ai.baishan.com"
-          className="text-white"
+          href="https://llmapis.com?source=https%3A%2F%2Fgithub.com%2Fquka-ai%2Fquka-ai"
+          target="_blank"
+          rel="noreferrer noopener"
         >
-          白山云
-        </a>{" "}
-        大模型API，立即<span className="text-white">免费</span>体验
-      </p>
-
-      <div className="mt-6 rounded-xl border bg-gradient-to-b from-secondary p-4 shadow-lg">
-        <p className="text-sm font-medium">
-          {`"白山云 大模型API，注册并完成实名认证后，您将获得150元代金券(目前永久有效)，可以通过部署文档快速完成本地部署。`}
-          <br />
-          {`欢迎使用我的推荐码：`}
-          <span className="text-pink-500">Ruh0hYhjvM 😄 </span>
-          {`活动有效期以白山云算力平台官网为准。`}
-          {`"`}
-        </p>
-        <div className="mt-4 flex flex-row items-center gap-2">
-          <Image
-            src="/developer-avatar.png"
-            alt="avatar"
-            width="32"
-            height="32"
-            className="size-8 rounded-full"
+          <img
+            src="https://llmapis.com/api/badge/quka-ai/quka-ai"
+            alt="LLMAPIS"
+            width="80"
+            height="20"
           />
-          <div>
-            <a
-              href="https://shew.dev"
-              rel="noreferrer noopener"
-              className="text-sm font-medium"
-            >
-              Boyce.
-            </a>
-            <p className="text-xs text-fd-muted-foreground">Developer</p>
-          </div>
-          <Link
-            href={process.env.CLOUD_SITE_URL + ""}
-            className={cn(
-              buttonVariants({ variant: "outline", className: "ml-auto" })
-            )}
+        </a>
+        <p className="text-sm text-fd-muted-foreground text-center font-mono">
+          Partnership with{" "}
+          <a
+            href="https://llmapis.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-fd-primary hover:underline"
           >
-            部署文档
-          </Link>
-        </div>
+            https://llmapis.com
+          </a>{" "}
+          - Discover more AI tools and resources
+        </p>
       </div>
     </div>
   );
@@ -538,7 +516,7 @@ function Features() {
                   className={cn(
                     searchItemVariants({
                       className: i === 0 ? "bg-fd-accent" : "",
-                    })
+                    }),
                   )}
                 >
                   <FileTextIcon className="size-4 text-fd-muted-foreground" />
