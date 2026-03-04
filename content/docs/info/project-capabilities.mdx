@@ -1,0 +1,141 @@
+---
+title: 项目功能总览
+description: 基于 webapp 与 quka-ai 代码的功能梳理
+---
+
+# 项目功能总览
+
+本文基于以下代码仓库整理（非主观描述）：
+
+- 前端：`/Users/wangboyan/development/quka/webapp`
+- 后端：`/Users/wangboyan/development/quka/quka-ai`
+
+## 产品定位
+
+Quka 是一个面向个人/团队的 AI 记忆与知识工作台。核心能力是把多来源内容沉淀到空间（Space）中，再通过知识检索、对话、摘要、播客等方式进行再利用。
+
+## 核心功能模块
+
+### 1. 账号与认证
+
+- 登录/注册/重置密码（前端路由：`/login`、`/forgot/password`、`/reset/password/:token`）
+- API 鉴权头支持：`X-Access-Token`、`X-Authorization`
+- 用户资料与令牌管理（后端：`/api/v1/user/info`、`/api/v1/user/profile`、`/api/v1/user/secret/token*`）
+
+### 2. Space 空间与成员协作
+
+- 空间创建、更新、删除、退出
+- 空间成员列表、角色设置、移除成员
+- 空间申请与审批（落地页 token + 审批流）
+- 空间级权限控制（view/edit/admin/member）
+- 空间设置中的 `base_prompt/chat_prompt` 会参与默认聊天链路 Prompt 拼装（见“空间”文档）
+
+对应后端路由集中在：
+
+- `/api/v1/space/*`
+- `/api/v1/space/landing/:token*`
+
+### 3. 知识库（Knowledge）
+
+- 知识创建/更新/删除/详情/列表
+- 支持异步入库（长内容切分任务）
+- 时间范围筛选与资源过滤
+- 知识问答接口：`POST /api/v1/:spaceid/knowledge/query`
+
+对应前端 API：`src/apis/knowledge.ts`、`src/apis/chunk-task.ts`
+
+### 4. AI 对话（Chat）
+
+- 会话创建、重命名、删除、列表
+- 消息 ID 生成、消息发送、流式停止
+- 历史消息分页加载
+- 消息扩展信息（关联文档、工具调用参数）
+
+对应后端路由：`/api/v1/:spaceid/chat/*`
+
+### 5. 资源管理（Resource）与上传
+
+- 资源增删改查（用于知识归类和过滤）
+- 对象上传签名（上传 key）
+- 公共对象访问与图片代理访问
+
+对应后端路由：
+
+- `/api/v1/:spaceid/resource*`
+- `/api/v1/space/:spaceid/object/upload/key`
+- `/public/*object_path`、`/image/*object_path`
+
+### 6. 日记（Journal）
+
+- 按日期获取、保存、删除日记
+- 日期列表查询
+
+对应后端路由：`/api/v1/space/:spaceid/journal*`
+
+### 7. RSS 与每日摘要（Digest）
+
+- RSS 订阅增删改查
+- 手动触发抓取
+- 每日摘要生成、历史查询、详情、删除
+
+对应后端路由：`/api/v1/:spaceid/rss/*`
+
+### 8. Podcast 能力
+
+- 播客创建、批量创建、重生成、删除
+- 列表/详情查询
+- 按来源反查
+
+对应后端路由：`/api/v1/:spaceid/podcasts*`
+
+### 9. 分享（Share）
+
+- 知识/会话/播客/空间分享 token 生成
+- 分享页访问（`/s/k/:token`、`/s/s/:token`、`/s/p/:token`、`/s/sp/:token`）
+- 分享知识复制到当前空间
+
+对应后端路由：
+
+- 页面：`/s/*`
+- API：`/api/v1/share/*`、`/api/v1/space/:spaceid/*/share`
+
+### 10. 工具能力（Tools）
+
+- 通用网页阅读器（reader）
+- 图片描述（describe image）
+
+对应后端路由：`/api/v1/tools/reader`、`/api/v1/tools/describe/image`
+
+### 11. 管理后台（Admin）
+
+- 模型提供商管理（providers）
+- 模型配置管理（configs）
+- AI 系统状态与使用配置
+- 用户管理（创建/列表/删用户/重置 token）
+
+对应后端路由：`/api/v1/admin/*`
+对应前端页面：`/dashboard/ai-admin/*`、`/dashboard/user-admin/*`
+
+### 12. 实时通信与 MCP
+
+- WebSocket 连接：`/api/v1/connect`
+- MCP Streamable HTTP：`POST /api/v1/mcp`
+
+## 前后端能力映射（摘要）
+
+| 业务域 | 前端入口 | 后端入口 |
+| --- | --- | --- |
+| 空间管理 | `src/apis/space.ts` | `/api/v1/space/*` |
+| 知识库 | `src/apis/knowledge.ts` | `/api/v1/:spaceid/knowledge/*` |
+| 对话 | `src/apis/chat.ts` | `/api/v1/:spaceid/chat/*` |
+| RSS | `src/apis/rss.ts` | `/api/v1/:spaceid/rss/*` |
+| 播客 | `src/apis/podcast.ts` | `/api/v1/:spaceid/podcasts*` |
+| 资源 | `src/apis/resource.ts` | `/api/v1/:spaceid/resource*` |
+| 分享 | `src/apis/share.ts` | `/api/v1/share/*` |
+| 工具 | `src/apis/tools.ts` | `/api/v1/tools/*` |
+| 管理员 | `src/apis/ai-admin.ts`、`src/apis/user-admin.ts` | `/api/v1/admin/*` |
+
+## 更新说明
+
+- 若前后端新增业务模块，请先更新本页，再补充对应 API 文档细节页。
+- 本页用于“功能边界总览”，接口参数细节以 `API` 分组文档为准。

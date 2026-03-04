@@ -6,6 +6,7 @@
     "pages": [
         "---简介---",
         "index",
+        "project-capabilities",
         "base-usage",
         "deployment",
         "space",
