@@ -1,0 +1,46 @@
+---
+title: API 总览
+description: QukaAI 开放接口与调用约定
+---
+
+# API 总览
+
+QukaAI API 默认前缀为：
+
+```bash
+/api/v1
+```
+
+## 认证方式
+
+需要在请求头中携带以下任一认证信息：
+
+```http
+X-Access-Token: {your_access_token}
+```  
+
+### 获取访问令牌  
+访问令牌（Access Token）可通过以下方式获取：  
+平台左下角点击用户菜单 -> 选择“设置” -> 在“密钥”页面生成新的访问令牌。  
+![用户设置入口](/user-setting.png)   
+![用户密钥设置](/access-token-setting.png)
+
+## 通用响应结构
+
+```json
+{
+  "meta": {
+    "code": 0,
+    "message": "",
+    "request_id": "0f8fad5b-d9cb"
+  },
+  "data": {}
+}
+```
+
+- `meta.code`: 业务状态码（成功通常为 `0`）
+- `meta.message`: 错误或提示信息
+- `meta.request_id`: 请求追踪 ID
+
+## 相关文档
+- [`/query` 接口文档](/docs/api/query)

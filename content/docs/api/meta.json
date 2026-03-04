@@ -1,6 +1,10 @@
 {
-    "root": true,
-    "title": "开放接口",
-    "description": "The CLI tool for docs automation",
-    "icon": "Terminal"
+  "root": true,
+  "title": "开放接口",
+  "description": "QukaAI Open API 文档",
+  "icon": "Terminal",
+  "pages": [
+    "index",
+    "query"
+  ]
 }

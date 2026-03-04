@@ -1,0 +1,107 @@
+---
+title: /query
+description: 基于知识库的同步问答接口
+---
+
+# `/query` API
+
+## Endpoint
+
+```http
+POST /api/v1/:spaceid/knowledge/query
+```
+
+## 鉴权与权限
+
+请求头（至少一个）：
+
+```http
+X-Access-Token: {your_access_token}
+```
+
+调用方需要具备目标空间 `:spaceid` 的查看权限（view）。
+
+## 请求体
+
+```json
+{
+  "query": "帮我总结最近关于 MCP 的记录",
+}
+```
+
+### 字段说明
+
+| 字段 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| `query` | `string` | 是 | 用户提问内容 |
+| `agent` | `string` | 否 | 助理类型；推荐值：`butler`、`journal`，空则走RAG流程 |
+| `resource` | `object` | 否 | 资源过滤条件 |
+| `resource.include` | `string[]` | 否 | 只在指定资源中检索 |
+| `resource.exclude` | `string[]` | 否 | 从检索范围中排除资源 |
+
+> `resource` 中若 `include` 非空，优先使用 `include` 进行过滤。
+
+## 成功响应
+
+```json
+{
+  "meta": {
+    "code": 0,
+    "message": "",
+    "request_id": "3ea56a9f-8f1b"
+  },
+  "data": {
+    "message": "你最近记录的 MCP 相关内容主要包括..."
+  }
+}
+```
+
+### `data` 字段
+
+| 字段 | 类型 | 说明 |
+| --- | --- | --- |
+| `message` | `string` | 模型生成的最终答案 |
+
+## 错误响应示例
+
+```json
+{
+  "meta": {
+    "code": 401,
+    "message": "unauthorized",
+    "request_id": "29fd0b1a-7b37"
+  },
+  "data": null
+}
+```
+
+常见错误码：
+
+- `400`: 参数错误（如缺少 `query`）
+- `401`: 认证失败或 token 失效
+- `403`: 无空间访问权限
+- `500`: 服务内部错误
+
+## cURL 示例
+
+```bash
+curl -X POST '{Your QukaAI Host}/api/v1/{spaceid}/knowledge/query' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Access-Token: {Your AccessToken}' \
+  -d '{
+    "query": "总结一下我最近的项目进展",
+    "agent": "butler",
+    "resource": {
+      "include": ["default"]
+    }
+  }'
+```
+
+```bash
+curl -X POST 'http://localhost:33033/api/v1/DSk2AEZWhHgMeVxKmXKKj97Rrm7TNuOJ/knowledge/query' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Access-Token: E6YbbOjm30yFvbL9o16pIJRqWKx9iwt1eRJTnfuhxeYNlRmXoltsMYTKCf5QGW2Hs8qnMRccHM2sy92vz7QOf1hsNW4fYqssJdYq' \
+  -d '{
+    "query": "周帅的收货地址是什么"
+  }'
+```
